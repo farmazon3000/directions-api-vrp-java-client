@@ -13,7 +13,7 @@ import java.util.List;
 public class Request  {
   
   private List<Vehicle> vehicles = new ArrayList<Vehicle>() ;
-  private List<VehicleType> vehicleTypes = Arrays.asList(new VehicleType());
+  private List<VehicleType> vehicleTypes = Arrays.asList();
   private List<Service> services = new ArrayList<Service>() ;
   private List<Shipment> shipments = new ArrayList<Shipment>() ;
 

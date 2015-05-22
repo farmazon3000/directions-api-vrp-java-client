@@ -11,11 +11,11 @@ import java.util.List;
 @ApiModel(description = "")
 public class VehicleType  {
   
-  private String typeId = "default";
+  private String typeId = null;
   public enum ProfileEnum {
      car,  bike,  foot, 
   };
-  private ProfileEnum profile = ProfileEnum.car;
+  private ProfileEnum profile = null;
   private List<Integer> capacity = new ArrayList<Integer>() ;
 
   

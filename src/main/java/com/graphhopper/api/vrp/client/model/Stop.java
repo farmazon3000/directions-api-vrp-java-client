@@ -12,7 +12,7 @@ import java.util.List;
 public class Stop  {
   
   private Address address = null;
-  private Long duration = 0L;
+  private Long duration = null;
   private List<TimeWindow> timeWindows = new ArrayList<TimeWindow>() ;
 
   

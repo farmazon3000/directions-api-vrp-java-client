@@ -12,12 +12,12 @@ import java.util.List;
 public class Vehicle  {
   
   private String vehicleId = null;
-  private String typeId = "default";
+  private String typeId = null;
   private Address startAddress = null;
   private Address endAddress = null;
-  private Boolean returnToDepot = true;
-  private Long earliestStart = 0L;
-  private Long latestEnd = Long.MAX_VALUE;
+  private Boolean returnToDepot = null;
+  private Long earliestStart = null;
+  private Long latestEnd = null;
   private List<String> skills = new ArrayList<String>() ;
 
   
