@@ -1,4 +1,4 @@
-package io.swagger.client;
+package com.graphhopper.api.vrp.client;
 
 public class ApiException extends Exception {
   int code = 0;

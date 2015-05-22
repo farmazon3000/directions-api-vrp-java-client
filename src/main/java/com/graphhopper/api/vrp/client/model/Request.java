@@ -1,4 +1,4 @@
-package io.swagger.client.model;
+package com.graphhopper.api.vrp.client.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wordnik.swagger.annotations.ApiModel;

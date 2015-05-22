@@ -1,4 +1,4 @@
-package io.swagger.client.model;
+package com.graphhopper.api.vrp.client.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wordnik.swagger.annotations.ApiModel;
@@ -9,12 +9,17 @@ import java.util.List;
 
 
 @ApiModel(description = "")
-public class Shipment  {
+public class Service  {
   
   private String id = null;
+  public enum TypeEnum {
+     service, 
+  };
+  private TypeEnum type = TypeEnum.service;
   private String name = null;
-  private Stop pickup = null;
-  private Stop delivery = null;
+  private Address address = null;
+  private Long duration = 0L;
+  private List<TimeWindow> timeWindows = new ArrayList<TimeWindow>() ;
   private List<Integer> size = new ArrayList<Integer>() ;
   private List<String> requiredSkills = new ArrayList<String>() ;
 
@@ -33,9 +38,22 @@ public class Shipment  {
 
   
   /**
-   * name of shipment
+   * type of service
    **/
-  @ApiModelProperty(value = "name of shipment")
+  @ApiModelProperty(value = "type of service")
+  @JsonProperty("type")
+  public TypeEnum getType() {
+    return type;
+  }
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  
+  /**
+   * name of service
+   **/
+  @ApiModelProperty(value = "name of service")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -48,24 +66,38 @@ public class Shipment  {
   /**
    **/
   @ApiModelProperty(value = "")
-  @JsonProperty("pickup")
-  public Stop getPickup() {
-    return pickup;
+  @JsonProperty("address")
+  public Address getAddress() {
+    return address;
   }
-  public void setPickup(Stop pickup) {
-    this.pickup = pickup;
+  public void setAddress(Address address) {
+    this.address = address;
   }
 
   
   /**
+   * duration of service, i.e. time in ms the corresponding activity takes
    **/
-  @ApiModelProperty(value = "")
-  @JsonProperty("delivery")
-  public Stop getDelivery() {
-    return delivery;
+  @ApiModelProperty(value = "duration of service, i.e. time in ms the corresponding activity takes")
+  @JsonProperty("duration")
+  public Long getDuration() {
+    return duration;
   }
-  public void setDelivery(Stop delivery) {
-    this.delivery = delivery;
+  public void setDuration(Long duration) {
+    this.duration = duration;
+  }
+
+  
+  /**
+   * array of time windows. currently, only a single time window is allowed
+   **/
+  @ApiModelProperty(value = "array of time windows. currently, only a single time window is allowed")
+  @JsonProperty("time_windows")
+  public List<TimeWindow> getTimeWindows() {
+    return timeWindows;
+  }
+  public void setTimeWindows(List<TimeWindow> timeWindows) {
+    this.timeWindows = timeWindows;
   }
 
   
@@ -99,12 +131,14 @@ public class Shipment  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Shipment {\n");
+    sb.append("class Service {\n");
     
     sb.append("  id: ").append(id).append("\n");
+    sb.append("  type: ").append(type).append("\n");
     sb.append("  name: ").append(name).append("\n");
-    sb.append("  pickup: ").append(pickup).append("\n");
-    sb.append("  delivery: ").append(delivery).append("\n");
+    sb.append("  address: ").append(address).append("\n");
+    sb.append("  duration: ").append(duration).append("\n");
+    sb.append("  timeWindows: ").append(timeWindows).append("\n");
     sb.append("  size: ").append(size).append("\n");
     sb.append("  requiredSkills: ").append(requiredSkills).append("\n");
     sb.append("}\n");

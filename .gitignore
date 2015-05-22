@@ -1,2 +1,19 @@
-target/
+/bin
+/target
+/output
+.DS_Store
 *~
+vrp-app.log
+
+# Netbeans
+nbactions.xml
+
+# IntelliJ
+*.ipr
+*.iws
+*.iml
+.idea/
+
+# Eclipse
+.project
+.classpath

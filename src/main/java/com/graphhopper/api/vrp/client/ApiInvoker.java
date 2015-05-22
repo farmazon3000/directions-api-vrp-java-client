@@ -1,4 +1,4 @@
-package io.swagger.client;
+package com.graphhopper.api.vrp.client;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.sun.jersey.api.client.Client;

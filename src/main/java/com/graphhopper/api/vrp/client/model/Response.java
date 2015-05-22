@@ -1,12 +1,12 @@
-package io.swagger.client.model;
+package com.graphhopper.api.vrp.client.model;
 
-
-import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
-public class LargeResponse  {
+public class Response  {
   
   private String jobId = null;
   public enum StatusEnum {
@@ -15,6 +15,7 @@ public class LargeResponse  {
   private StatusEnum status = null;
   private Long waitingInQueue = null;
   private Long processingTime = null;
+  private Solution solution = null;
 
   
   /**
@@ -69,16 +70,30 @@ public class LargeResponse  {
   }
 
   
+  /**
+   * the solution. only available if status field indicates finished
+   **/
+  @ApiModelProperty(value = "the solution. only available if status field indicates finished")
+  @JsonProperty("solution")
+  public Solution getSolution() {
+    return solution;
+  }
+  public void setSolution(Solution solution) {
+    this.solution = solution;
+  }
+
+  
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LargeResponse {\n");
+    sb.append("class Response {\n");
     
     sb.append("  jobId: ").append(jobId).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  waitingInQueue: ").append(waitingInQueue).append("\n");
     sb.append("  processingTime: ").append(processingTime).append("\n");
+    sb.append("  solution: ").append(solution).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

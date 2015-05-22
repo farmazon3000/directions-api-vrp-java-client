@@ -1,14 +1,15 @@
-package io.swagger.client.api;
+package com.graphhopper.api.vrp.client.api;
 
+import com.graphhopper.api.vrp.client.model.Request;
 import com.sun.jersey.multipart.FormDataMultiPart;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiInvoker;
-import io.swagger.client.model.Response;
+import com.graphhopper.api.vrp.client.ApiException;
+import com.graphhopper.api.vrp.client.ApiInvoker;
+import com.graphhopper.api.vrp.client.model.JobId;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SolutionApi {
+public class VrpApi {
   String basePath = "https://graphhopper.com/api/1/vrp";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
@@ -26,19 +27,18 @@ public class SolutionApi {
 
   
   /**
-   * Return the solution associated to the jobId
-   * This endpoint returns the solution of a large problems. You can fetch it with the job_id, you have been sent.\n
+   * Solves large routing problems
+   * This endpoint solves large problems, i.e. traveling salesman or vehicle routing problems, and returns the solution.\n
    * @param key your API key
-   * @param jobId Request solution with jobId
-   * @return Response
+   * @param body Request object that contains the problem to be solved
+   * @return JobId
    */
-  public Response getSolution (String key, String jobId) throws ApiException {
-    Object postBody = null;
+  public JobId postVrp (String key, Request body) throws ApiException {
+    Object postBody = body;
     
 
     // create path and map variables
-    String path = "/solution/{jobId}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "jobId" + "\\}", apiInvoker.escapeString(jobId.toString()));
+    String path = "/optimize".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -67,9 +67,9 @@ public class SolutionApi {
     }
 
     try {
-      String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
+      String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Response) ApiInvoker.deserialize(response, "", Response.class);
+        return (JobId) ApiInvoker.deserialize(response, "", JobId.class);
       }
       else {
         return null;
