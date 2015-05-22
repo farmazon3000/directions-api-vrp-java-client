@@ -1,30 +1,16 @@
 package io.swagger.client.api;
 
+import com.sun.jersey.multipart.FormDataMultiPart;
 import io.swagger.client.ApiException;
 import io.swagger.client.ApiInvoker;
+import io.swagger.client.model.Response;
 
-import io.swagger.client.model.*;
-
-import java.util.*;
-
-import io.swagger.client.model.LargeResponse;
-
-import com.sun.jersey.multipart.FormDataMultiPart;
-import com.sun.jersey.multipart.file.FileDataBodyPart;
-
-import javax.ws.rs.core.MediaType;
-
-import java.io.File;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SolutionApi {
-  private String basePath = "https://graphhopper.com/api/1/vrp";
-  private ApiInvoker apiInvoker;
-
-  public SolutionApi(ApiInvoker apiInvoker) {
-      this.apiInvoker = apiInvoker;
-  }  
+  String basePath = "https://graphhopper.com/api/1/vrp";
+  ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public ApiInvoker getInvoker() {
     return apiInvoker;
@@ -44,9 +30,9 @@ public class SolutionApi {
    * This endpoint returns the solution of a large problems. You can fetch it with the job_id, you have been sent.\n
    * @param key your API key
    * @param jobId Request solution with jobId
-   * @return LargeResponse
+   * @return Response
    */
-  public LargeResponse getSolution (String key, String jobId) throws ApiException {
+  public Response getSolution (String key, String jobId) throws ApiException {
     Object postBody = null;
     
 
@@ -83,7 +69,7 @@ public class SolutionApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (LargeResponse) ApiInvoker.deserialize(response, "", LargeResponse.class);
+        return (Response) ApiInvoker.deserialize(response, "", Response.class);
       }
       else {
         return null;

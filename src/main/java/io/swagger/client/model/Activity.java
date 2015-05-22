@@ -1,15 +1,16 @@
 package io.swagger.client.model;
 
 
-import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
 public class Activity  {
   
   public enum TypeEnum {
-     start,  end,  service, 
+     start,  end,  service, pickupShipment, deliverShipment,
   };
   private TypeEnum type = null;
   private String id = null;

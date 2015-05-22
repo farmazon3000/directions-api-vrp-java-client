@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.graphhopper</groupId>
-  <artifactId>directions-api-vrp-java-client</artifactId>
+  <groupId>api-client</groupId>
+  <artifactId>client</artifactId>
   <packaging>jar</packaging>
-  <name>GraphHopper Directions API Java Client for the Tour Optimization API</name>
-  <version>0.4.1</version>
+  <name>swagger-java-client</name>
+  <version>1.0.0</version>
   <scm>
     <connection>scm:git:git@github.com:wordnik/swagger-mustache.git</connection>
     <developerConnection>scm:git:git@github.com:wordnik/swagger-codegen.git</developerConnection>
@@ -28,7 +28,7 @@
               <value>conf/log4j.properties</value>
             </property>
           </systemProperties>
-          <argLine>-Xms500m -Xmx500m</argLine>
+          <argLine>-Xms512m -Xmx1500m</argLine>
           <parallel>methods</parallel>
           <forkMode>pertest</forkMode>
         </configuration>

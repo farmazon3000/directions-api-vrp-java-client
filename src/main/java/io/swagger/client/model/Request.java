@@ -1,20 +1,21 @@
 package io.swagger.client.model;
 
-import io.swagger.client.model.Service;
-import io.swagger.client.model.VehicleType;
-import java.util.*;
-import io.swagger.client.model.Vehicle;
-
-import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @ApiModel(description = "")
 public class Request  {
   
   private List<Vehicle> vehicles = new ArrayList<Vehicle>() ;
-  private List<VehicleType> vehicleTypes = new ArrayList<VehicleType>() ;
+  private List<VehicleType> vehicleTypes = Arrays.asList(new VehicleType());
   private List<Service> services = new ArrayList<Service>() ;
+  private List<Shipment> shipments = new ArrayList<Shipment>() ;
 
   
   /**
@@ -56,6 +57,19 @@ public class Request  {
   }
 
   
+  /**
+   * An array of shipments
+   **/
+  @ApiModelProperty(value = "An array of shipments")
+  @JsonProperty("shipments")
+  public List<Shipment> getShipments() {
+    return shipments;
+  }
+  public void setShipments(List<Shipment> shipments) {
+    this.shipments = shipments;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -65,6 +79,7 @@ public class Request  {
     sb.append("  vehicles: ").append(vehicles).append("\n");
     sb.append("  vehicleTypes: ").append(vehicleTypes).append("\n");
     sb.append("  services: ").append(services).append("\n");
+    sb.append("  shipments: ").append(shipments).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

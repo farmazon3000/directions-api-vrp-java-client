@@ -1,31 +1,17 @@
 package io.swagger.client.api;
 
+import com.sun.jersey.multipart.FormDataMultiPart;
 import io.swagger.client.ApiException;
 import io.swagger.client.ApiInvoker;
-
-import io.swagger.client.model.*;
-
-import java.util.*;
-
 import io.swagger.client.model.JobId;
 import io.swagger.client.model.Request;
 
-import com.sun.jersey.multipart.FormDataMultiPart;
-import com.sun.jersey.multipart.file.FileDataBodyPart;
-
-import javax.ws.rs.core.MediaType;
-
-import java.io.File;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class VrpApi {
-  private String basePath = "https://graphhopper.com/api/1/vrp";
-  private ApiInvoker apiInvoker;
-
-  public VrpApi(ApiInvoker apiInvoker) {
-      this.apiInvoker = apiInvoker;
-  }  
+  String basePath = "https://graphhopper.com/api/1/vrp";
+  ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public ApiInvoker getInvoker() {
     return apiInvoker;

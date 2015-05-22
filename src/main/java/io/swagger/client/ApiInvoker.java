@@ -1,37 +1,22 @@
 package io.swagger.client;
 
-import com.fasterxml.jackson.core.JsonGenerator.Feature;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
+import com.fasterxml.jackson.databind.JavaType;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.api.client.filter.LoggingFilter;
 import com.sun.jersey.api.client.WebResource.Builder;
+import com.sun.jersey.api.client.filter.LoggingFilter;
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.Response.Status.Family;
-import javax.ws.rs.core.MediaType;
-
-import java.util.Collection;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Date;
-import java.util.TimeZone;
-
-import java.net.URLEncoder;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
-import java.text.SimpleDateFormat;
+import java.net.URLEncoder;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class ApiInvoker {
+  private static ApiInvoker INSTANCE = new ApiInvoker();
   private Map<String, Client> hostMap = new HashMap<String, Client>();
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private boolean isDebug = false;
@@ -51,22 +36,20 @@ public class ApiInvoker {
   static {
     // Use UTC as the default time zone.
     DATE_TIME_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
-    DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));    
-  }
+    DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-  public ApiInvoker() {
     // Set default User-Agent.
     setUserAgent("Java-Swagger");
   }
 
-  public void setUserAgent(String userAgent) {
-    this.addDefaultHeader("User-Agent", userAgent);
+  public static void setUserAgent(String userAgent) {
+    INSTANCE.addDefaultHeader("User-Agent", userAgent);
   }
 
   public static Date parseDateTime(String str) {
     try {
       return DATE_TIME_FORMAT.parse(str);
-    } catch (java.text.ParseException e) {
+    } catch (ParseException e) {
       throw new RuntimeException(e);
     }
   }
@@ -74,7 +57,7 @@ public class ApiInvoker {
   public static Date parseDate(String str) {
     try {
       return DATE_FORMAT.parse(str);
-    } catch (java.text.ParseException e) {
+    } catch (ParseException e) {
       throw new RuntimeException(e);
     }
   }
@@ -107,6 +90,10 @@ public class ApiInvoker {
   }
   public void enableDebug() {
     isDebug = true;
+  }
+
+  public static ApiInvoker getInstance() {
+    return INSTANCE;
   }
 
   public void addDefaultHeader(String key, String value) {

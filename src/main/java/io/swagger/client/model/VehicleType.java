@@ -1,20 +1,22 @@
 package io.swagger.client.model;
 
-
-import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @ApiModel(description = "")
 public class VehicleType  {
   
-  private String typeId = null;
+  private String typeId = "default";
   public enum ProfileEnum {
      car,  bike,  foot, 
   };
-  private ProfileEnum profile = null;
-  private Double distanceDependentCosts = null;
-  private Double timeDependentCosts = null;
+  private ProfileEnum profile = ProfileEnum.car;
+  private List<Integer> capacity = new ArrayList<Integer>() ;
 
   
   /**
@@ -44,28 +46,15 @@ public class VehicleType  {
 
   
   /**
-   * cost factor of distance
+   * array of capacity dimensions
    **/
-  @ApiModelProperty(value = "cost factor of distance")
-  @JsonProperty("distance_dependent_costs")
-  public Double getDistanceDependentCosts() {
-    return distanceDependentCosts;
+  @ApiModelProperty(value = "array of capacity dimensions")
+  @JsonProperty("capacity")
+  public List<Integer> getCapacity() {
+    return capacity;
   }
-  public void setDistanceDependentCosts(Double distanceDependentCosts) {
-    this.distanceDependentCosts = distanceDependentCosts;
-  }
-
-  
-  /**
-   * cost factor of time
-   **/
-  @ApiModelProperty(value = "cost factor of time")
-  @JsonProperty("time_dependent_costs")
-  public Double getTimeDependentCosts() {
-    return timeDependentCosts;
-  }
-  public void setTimeDependentCosts(Double timeDependentCosts) {
-    this.timeDependentCosts = timeDependentCosts;
+  public void setCapacity(List<Integer> capacity) {
+    this.capacity = capacity;
   }
 
   
@@ -77,8 +66,7 @@ public class VehicleType  {
     
     sb.append("  typeId: ").append(typeId).append("\n");
     sb.append("  profile: ").append(profile).append("\n");
-    sb.append("  distanceDependentCosts: ").append(distanceDependentCosts).append("\n");
-    sb.append("  timeDependentCosts: ").append(timeDependentCosts).append("\n");
+    sb.append("  capacity: ").append(capacity).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

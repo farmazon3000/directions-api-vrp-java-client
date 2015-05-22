@@ -1,10 +1,11 @@
 package io.swagger.client.model;
 
-import java.util.*;
-import io.swagger.client.model.Route;
-
-import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @ApiModel(description = "")
