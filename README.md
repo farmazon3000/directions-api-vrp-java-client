@@ -6,7 +6,7 @@ This client is automatically created from the swagger specification.
 
 ## Usage
 
-See [examples](https://github.com/karussell/directions-api-vrp-java-client/tree/master/src/main/java/com/graphhopper/api/vrp/example) for an example usage.
+See [examples](https://github.com/karussell/directions-api-vrp-java-client/tree/master/src/main/java/com/graphhopper/api/vrp/example)
 
 ## Maven
 It is not yet in the central repository, thus you need to install it locally. Just do the following
