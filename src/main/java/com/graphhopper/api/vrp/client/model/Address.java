@@ -1,13 +1,16 @@
 package com.graphhopper.api.vrp.client.model;
 
+import com.graphhopper.api.vrp.client.StringUtil;
 
+
+
+import io.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
-public class Address  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Address   {
   
   private String locationId = null;
   private Double lon = null;
@@ -59,10 +62,10 @@ public class Address  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Address {\n");
     
-    sb.append("  locationId: ").append(locationId).append("\n");
-    sb.append("  lon: ").append(lon).append("\n");
-    sb.append("  lat: ").append(lat).append("\n");
-    sb.append("}\n");
+    sb.append("    locationId: ").append(StringUtil.toIndentedString(locationId)).append("\n");
+    sb.append("    lon: ").append(StringUtil.toIndentedString(lon)).append("\n");
+    sb.append("    lat: ").append(StringUtil.toIndentedString(lat)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

@@ -1,17 +1,37 @@
 package com.graphhopper.api.vrp.client.model;
 
+import com.graphhopper.api.vrp.client.StringUtil;
+import com.graphhopper.api.vrp.client.model.Solution;
+
+
+
+import io.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
-public class Response  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Response   {
   
   private String jobId = null;
-  public enum StatusEnum {
-     waiting_in_queue,  processing,  finished, 
-  };
+
+public enum StatusEnum {
+  WAITING_IN_QUEUE("waiting_in_queue"),
+  PROCESSING("processing"),
+  FINISHED("finished");
+
+  private String value;
+
+  StatusEnum(String value) {
+    this.value = value;
+  }
+
+  @Override
+  public String toString() {
+    return value;
+  }
+}
+
   private StatusEnum status = null;
   private Long waitingInQueue = null;
   private Long processingTime = null;
@@ -89,12 +109,12 @@ public class Response  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Response {\n");
     
-    sb.append("  jobId: ").append(jobId).append("\n");
-    sb.append("  status: ").append(status).append("\n");
-    sb.append("  waitingInQueue: ").append(waitingInQueue).append("\n");
-    sb.append("  processingTime: ").append(processingTime).append("\n");
-    sb.append("  solution: ").append(solution).append("\n");
-    sb.append("}\n");
+    sb.append("    jobId: ").append(StringUtil.toIndentedString(jobId)).append("\n");
+    sb.append("    status: ").append(StringUtil.toIndentedString(status)).append("\n");
+    sb.append("    waitingInQueue: ").append(StringUtil.toIndentedString(waitingInQueue)).append("\n");
+    sb.append("    processingTime: ").append(StringUtil.toIndentedString(processingTime)).append("\n");
+    sb.append("    solution: ").append(StringUtil.toIndentedString(solution)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

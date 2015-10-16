@@ -1,13 +1,16 @@
 package com.graphhopper.api.vrp.client.model;
 
+import com.graphhopper.api.vrp.client.StringUtil;
 
+
+
+import io.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
-public class JobId  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class JobId   {
   
   private String jobId = null;
 
@@ -31,8 +34,8 @@ public class JobId  {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobId {\n");
     
-    sb.append("  jobId: ").append(jobId).append("\n");
-    sb.append("}\n");
+    sb.append("    jobId: ").append(StringUtil.toIndentedString(jobId)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

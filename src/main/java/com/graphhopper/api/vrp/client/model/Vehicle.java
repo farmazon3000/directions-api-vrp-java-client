@@ -1,24 +1,29 @@
 package com.graphhopper.api.vrp.client.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import com.graphhopper.api.vrp.client.StringUtil;
+import com.graphhopper.api.vrp.client.model.Address;
+import com.graphhopper.api.vrp.client.model.Break;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
+import io.swagger.annotations.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Vehicle  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Vehicle   {
   
   private String vehicleId = null;
   private String typeId = null;
   private Address startAddress = null;
   private Address endAddress = null;
+  private Break _break = null;
   private Boolean returnToDepot = null;
   private Long earliestStart = null;
   private Long latestEnd = null;
-  private List<String> skills = new ArrayList<String>() ;
+  private List<String> skills = new ArrayList<String>();
 
   
   /**
@@ -68,6 +73,18 @@ public class Vehicle  {
   }
   public void setEndAddress(Address endAddress) {
     this.endAddress = endAddress;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  @JsonProperty("break")
+  public Break getBreak() {
+    return _break;
+  }
+  public void setBreak(Break _break) {
+    this._break = _break;
   }
 
   
@@ -129,15 +146,16 @@ public class Vehicle  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Vehicle {\n");
     
-    sb.append("  vehicleId: ").append(vehicleId).append("\n");
-    sb.append("  typeId: ").append(typeId).append("\n");
-    sb.append("  startAddress: ").append(startAddress).append("\n");
-    sb.append("  endAddress: ").append(endAddress).append("\n");
-    sb.append("  returnToDepot: ").append(returnToDepot).append("\n");
-    sb.append("  earliestStart: ").append(earliestStart).append("\n");
-    sb.append("  latestEnd: ").append(latestEnd).append("\n");
-    sb.append("  skills: ").append(skills).append("\n");
-    sb.append("}\n");
+    sb.append("    vehicleId: ").append(StringUtil.toIndentedString(vehicleId)).append("\n");
+    sb.append("    typeId: ").append(StringUtil.toIndentedString(typeId)).append("\n");
+    sb.append("    startAddress: ").append(StringUtil.toIndentedString(startAddress)).append("\n");
+    sb.append("    endAddress: ").append(StringUtil.toIndentedString(endAddress)).append("\n");
+    sb.append("    _break: ").append(StringUtil.toIndentedString(_break)).append("\n");
+    sb.append("    returnToDepot: ").append(StringUtil.toIndentedString(returnToDepot)).append("\n");
+    sb.append("    earliestStart: ").append(StringUtil.toIndentedString(earliestStart)).append("\n");
+    sb.append("    latestEnd: ").append(StringUtil.toIndentedString(latestEnd)).append("\n");
+    sb.append("    skills: ").append(StringUtil.toIndentedString(skills)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

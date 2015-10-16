@@ -1,19 +1,23 @@
 package com.graphhopper.api.vrp.client.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import com.graphhopper.api.vrp.client.StringUtil;
+import com.graphhopper.api.vrp.client.model.Address;
+import java.util.*;
+import com.graphhopper.api.vrp.client.model.TimeWindow;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
+import io.swagger.annotations.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Stop  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Stop   {
   
   private Address address = null;
   private Long duration = null;
-  private List<TimeWindow> timeWindows = new ArrayList<TimeWindow>() ;
+  private List<TimeWindow> timeWindows = new ArrayList<TimeWindow>();
 
   
   /**
@@ -60,10 +64,10 @@ public class Stop  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Stop {\n");
     
-    sb.append("  address: ").append(address).append("\n");
-    sb.append("  duration: ").append(duration).append("\n");
-    sb.append("  timeWindows: ").append(timeWindows).append("\n");
-    sb.append("}\n");
+    sb.append("    address: ").append(StringUtil.toIndentedString(address)).append("\n");
+    sb.append("    duration: ").append(StringUtil.toIndentedString(duration)).append("\n");
+    sb.append("    timeWindows: ").append(StringUtil.toIndentedString(timeWindows)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

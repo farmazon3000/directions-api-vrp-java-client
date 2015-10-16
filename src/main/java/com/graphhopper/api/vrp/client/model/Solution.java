@@ -1,21 +1,24 @@
 package com.graphhopper.api.vrp.client.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import com.graphhopper.api.vrp.client.StringUtil;
+import java.util.*;
+import com.graphhopper.api.vrp.client.model.Route;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
+import io.swagger.annotations.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Solution  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Solution   {
   
   private Integer costs = null;
   private Integer distance = null;
   private Long time = null;
   private Integer noUnassigned = null;
-  private List<Route> routes = new ArrayList<Route>() ;
+  private List<Route> routes = new ArrayList<Route>();
   private Object unassigned = null;
 
   
@@ -102,13 +105,13 @@ public class Solution  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Solution {\n");
     
-    sb.append("  costs: ").append(costs).append("\n");
-    sb.append("  distance: ").append(distance).append("\n");
-    sb.append("  time: ").append(time).append("\n");
-    sb.append("  noUnassigned: ").append(noUnassigned).append("\n");
-    sb.append("  routes: ").append(routes).append("\n");
-    sb.append("  unassigned: ").append(unassigned).append("\n");
-    sb.append("}\n");
+    sb.append("    costs: ").append(StringUtil.toIndentedString(costs)).append("\n");
+    sb.append("    distance: ").append(StringUtil.toIndentedString(distance)).append("\n");
+    sb.append("    time: ").append(StringUtil.toIndentedString(time)).append("\n");
+    sb.append("    noUnassigned: ").append(StringUtil.toIndentedString(noUnassigned)).append("\n");
+    sb.append("    routes: ").append(StringUtil.toIndentedString(routes)).append("\n");
+    sb.append("    unassigned: ").append(StringUtil.toIndentedString(unassigned)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

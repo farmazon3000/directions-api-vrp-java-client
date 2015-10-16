@@ -1,27 +1,44 @@
 package com.graphhopper.api.vrp.client.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import com.graphhopper.api.vrp.client.StringUtil;
+import com.graphhopper.api.vrp.client.model.Address;
+import java.util.*;
+import com.graphhopper.api.vrp.client.model.TimeWindow;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
+import io.swagger.annotations.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Service  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Service   {
   
   private String id = null;
-  public enum TypeEnum {
-     service, 
-  };
-  private TypeEnum type = TypeEnum.service;
+
+public enum TypeEnum {
+  SERVICE("service");
+
+  private String value;
+
+  TypeEnum(String value) {
+    this.value = value;
+  }
+
+  @Override
+  public String toString() {
+    return value;
+  }
+}
+
+  private TypeEnum type = null;
   private String name = null;
   private Address address = null;
-  private Long duration = 0L;
-  private List<TimeWindow> timeWindows = new ArrayList<TimeWindow>() ;
-  private List<Integer> size = new ArrayList<Integer>() ;
-  private List<String> requiredSkills = new ArrayList<String>() ;
+  private Long duration = null;
+  private List<TimeWindow> timeWindows = new ArrayList<TimeWindow>();
+  private List<Integer> size = new ArrayList<Integer>();
+  private List<String> requiredSkills = new ArrayList<String>();
 
   
   /**
@@ -133,15 +150,15 @@ public class Service  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Service {\n");
     
-    sb.append("  id: ").append(id).append("\n");
-    sb.append("  type: ").append(type).append("\n");
-    sb.append("  name: ").append(name).append("\n");
-    sb.append("  address: ").append(address).append("\n");
-    sb.append("  duration: ").append(duration).append("\n");
-    sb.append("  timeWindows: ").append(timeWindows).append("\n");
-    sb.append("  size: ").append(size).append("\n");
-    sb.append("  requiredSkills: ").append(requiredSkills).append("\n");
-    sb.append("}\n");
+    sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(StringUtil.toIndentedString(type)).append("\n");
+    sb.append("    name: ").append(StringUtil.toIndentedString(name)).append("\n");
+    sb.append("    address: ").append(StringUtil.toIndentedString(address)).append("\n");
+    sb.append("    duration: ").append(StringUtil.toIndentedString(duration)).append("\n");
+    sb.append("    timeWindows: ").append(StringUtil.toIndentedString(timeWindows)).append("\n");
+    sb.append("    size: ").append(StringUtil.toIndentedString(size)).append("\n");
+    sb.append("    requiredSkills: ").append(StringUtil.toIndentedString(requiredSkills)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

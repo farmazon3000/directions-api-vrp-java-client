@@ -1,82 +1,95 @@
 package com.graphhopper.api.vrp.client.api;
 
-import com.graphhopper.api.vrp.client.ApiInvoker;
-import com.graphhopper.api.vrp.client.model.Response;
-import com.sun.jersey.multipart.FormDataMultiPart;
 import com.graphhopper.api.vrp.client.ApiException;
+import com.graphhopper.api.vrp.client.ApiClient;
+import com.graphhopper.api.vrp.client.Configuration;
+import com.graphhopper.api.vrp.client.Pair;
+import com.graphhopper.api.vrp.client.TypeRef;
+import com.graphhopper.api.vrp.client.model.Response;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
 public class SolutionApi {
-  String basePath = "https://graphhopper.com/api/1/vrp";
-  ApiInvoker apiInvoker = ApiInvoker.getInstance();
+  private ApiClient apiClient;
 
-  public ApiInvoker getInvoker() {
-    return apiInvoker;
+  public SolutionApi() {
+    this(Configuration.getDefaultApiClient());
   }
 
-  public void setBasePath(String basePath) {
-    this.basePath = basePath;
+  public SolutionApi(ApiClient apiClient) {
+    this.apiClient = apiClient;
   }
 
-  public String getBasePath() {
-    return basePath;
+  public ApiClient getApiClient() {
+    return apiClient;
+  }
+
+  public void setApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
   }
 
   
   /**
    * Return the solution associated to the jobId
-   * This endpoint returns the solution of a large problems. You can fetch it with the job_id, you have been sent.\n
+   * This endpoint returns the solution of a large problems. You can fetch it with the job_id, you have been sent.
    * @param key your API key
    * @param jobId Request solution with jobId
    * @return Response
    */
   public Response getSolution (String key, String jobId) throws ApiException {
     Object postBody = null;
+    byte[] postBinaryBody = null;
     
-
+     // verify the required parameter 'key' is set
+     if (key == null) {
+        throw new ApiException(400, "Missing the required parameter 'key' when calling getSolution");
+     }
+     
+     // verify the required parameter 'jobId' is set
+     if (jobId == null) {
+        throw new ApiException(400, "Missing the required parameter 'jobId' when calling getSolution");
+     }
+     
     // create path and map variables
     String path = "/solution/{jobId}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "jobId" + "\\}", apiInvoker.escapeString(jobId.toString()));
+      .replaceAll("\\{" + "jobId" + "\\}", apiClient.escapeString(jobId.toString()));
 
     // query params
-    Map<String, String> queryParams = new HashMap<String, String>();
+    List<Pair> queryParams = new ArrayList<Pair>();
     Map<String, String> headerParams = new HashMap<String, String>();
-    Map<String, String> formParams = new HashMap<String, String>();
+    Map<String, Object> formParams = new HashMap<String, Object>();
 
-    if (key != null)
-      queryParams.put("key", ApiInvoker.parameterToString(key));
     
+    queryParams.addAll(apiClient.parameterToPairs("", "key", key));
     
-    String[] contentTypes = {
-      "application/json",
+
+    
+
+    
+
+    final String[] accepts = {
+      "application/json"
     };
+    final String accept = apiClient.selectHeaderAccept(accepts);
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    final String[] contentTypes = {
+      "application/json"
+    };
+    final String contentType = apiClient.selectHeaderContentType(contentTypes);
 
-    if(contentType.startsWith("multipart/form-data")) {
-      boolean hasFields = false;
-      FormDataMultiPart mp = new FormDataMultiPart();
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-      
-    }
+    String[] authNames = new String[] { "api_key" };
 
-    try {
-      String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
-      if(response != null){
-        return (Response) ApiInvoker.deserialize(response, "", Response.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      throw ex;
-    }
+    
+
+    
+    
+    TypeRef returnType = new TypeRef<Response>() {};
+    return apiClient.invokeAPI(path, "GET", queryParams, postBody, postBinaryBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    
+    
+
+
   }
   
 }

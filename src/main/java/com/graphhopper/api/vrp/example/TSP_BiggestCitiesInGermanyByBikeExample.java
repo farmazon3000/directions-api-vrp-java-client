@@ -39,7 +39,7 @@ public class TSP_BiggestCitiesInGermanyByBikeExample {
 
         while (true) {
             rsp = solApi.getSolution(key, jobId.getJobId());
-            if (rsp.getStatus().equals(Response.StatusEnum.finished)) {
+            if (rsp.getStatus().equals(Response.StatusEnum.FINISHED)) {
                 break;
             }
             Thread.sleep(200);
@@ -68,7 +68,7 @@ public class TSP_BiggestCitiesInGermanyByBikeExample {
          */
         List<VehicleType> types = new ArrayList<VehicleType>();
         VehicleType type = new VehicleType();
-        type.setProfile(VehicleType.ProfileEnum.bike);
+        type.setProfile(VehicleType.ProfileEnum.BIKE);
         type.setTypeId("my-awesome-bike");
         types.add(type);
         request.setVehicleTypes(types);
@@ -99,7 +99,7 @@ public class TSP_BiggestCitiesInGermanyByBikeExample {
     public Service createService(String id, double lat, double lon) {
         Service service = new Service();
         service.setId(id);
-        service.setType(Service.TypeEnum.service);
+        service.setType(Service.TypeEnum.SERVICE);
         service.setAddress(createAddress(id, lat, lon));
         return service;
     }

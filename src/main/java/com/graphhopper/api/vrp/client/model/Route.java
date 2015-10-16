@@ -1,18 +1,21 @@
 package com.graphhopper.api.vrp.client.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import com.graphhopper.api.vrp.client.StringUtil;
+import com.graphhopper.api.vrp.client.model.Activity;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
+import io.swagger.annotations.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Route  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Route   {
   
   private String vehicleId = null;
-  private List<Activity> activities = new ArrayList<Activity>() ;
+  private List<Activity> activities = new ArrayList<Activity>();
 
   
   /**
@@ -47,9 +50,9 @@ public class Route  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Route {\n");
     
-    sb.append("  vehicleId: ").append(vehicleId).append("\n");
-    sb.append("  activities: ").append(activities).append("\n");
-    sb.append("}\n");
+    sb.append("    vehicleId: ").append(StringUtil.toIndentedString(vehicleId)).append("\n");
+    sb.append("    activities: ").append(StringUtil.toIndentedString(activities)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

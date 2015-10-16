@@ -36,7 +36,7 @@ public class VRP_WithSkillsExample {
 
         while (true) {
             rsp = solApi.getSolution(key, jobId.getJobId());
-            if (rsp.getStatus().equals(Response.StatusEnum.finished)) {
+            if (rsp.getStatus().equals(Response.StatusEnum.FINISHED)) {
                 break;
             }
             Thread.sleep(200);
@@ -73,7 +73,7 @@ public class VRP_WithSkillsExample {
          */
         List<VehicleType> types = new ArrayList<VehicleType>();
         VehicleType type = new VehicleType();
-        type.setProfile(VehicleType.ProfileEnum.car);
+        type.setProfile(VehicleType.ProfileEnum.CAR);
         type.setTypeId("vehicle_type_1");
         type.setCapacity(Arrays.asList( 5 ));
         types.add(type);
@@ -149,7 +149,7 @@ public class VRP_WithSkillsExample {
     public Service createService(String id, double lat, double lon) {
         Service service = new Service();
         service.setId(id);
-        service.setType(Service.TypeEnum.service);
+        service.setType(Service.TypeEnum.SERVICE);
         service.setAddress(createAddress(id, lat, lon));
         return service;
     }

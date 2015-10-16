@@ -34,7 +34,7 @@ public class TSP_BiggestCitiesInGermanyExample {
 
         while (true) {
             rsp = solApi.getSolution(key, jobId.getJobId());
-            if (rsp.getStatus().equals(Response.StatusEnum.finished)) {
+            if (rsp.getStatus().equals(Response.StatusEnum.FINISHED)) {
                 break;
             }
             Thread.sleep(200);
@@ -83,7 +83,7 @@ public class TSP_BiggestCitiesInGermanyExample {
     public Service createService(String id, double lat, double lon) {
         Service service = new Service();
         service.setId(id);
-        service.setType(Service.TypeEnum.service);
+        service.setType(Service.TypeEnum.SERVICE);
         service.setAddress(createAddress(id, lat, lon));
         return service;
     }

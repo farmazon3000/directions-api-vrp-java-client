@@ -1,17 +1,37 @@
 package com.graphhopper.api.vrp.client.model;
 
+import com.graphhopper.api.vrp.client.StringUtil;
 
+
+
+import io.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
-public class Activity  {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+public class Activity   {
   
-  public enum TypeEnum {
-     start,  end,  service, pickupShipment, deliverShipment,
-  };
+
+public enum TypeEnum {
+  START("start"),
+  END("end"),
+  SERVICE("service"),
+  PICKUPSHIPMENT("pickupShipment"),
+  DELIVERSHIPMENT("deliverShipment");
+
+  private String value;
+
+  TypeEnum(String value) {
+    this.value = value;
+  }
+
+  @Override
+  public String toString() {
+    return value;
+  }
+}
+
   private TypeEnum type = null;
   private String id = null;
   private String locationId = null;
@@ -90,12 +110,12 @@ public class Activity  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Activity {\n");
     
-    sb.append("  type: ").append(type).append("\n");
-    sb.append("  id: ").append(id).append("\n");
-    sb.append("  locationId: ").append(locationId).append("\n");
-    sb.append("  arrTime: ").append(arrTime).append("\n");
-    sb.append("  endTime: ").append(endTime).append("\n");
-    sb.append("}\n");
+    sb.append("    type: ").append(StringUtil.toIndentedString(type)).append("\n");
+    sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
+    sb.append("    locationId: ").append(StringUtil.toIndentedString(locationId)).append("\n");
+    sb.append("    arrTime: ").append(StringUtil.toIndentedString(arrTime)).append("\n");
+    sb.append("    endTime: ").append(StringUtil.toIndentedString(endTime)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 }

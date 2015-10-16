@@ -35,7 +35,7 @@ public class VRP_WithShipmentExample {
 
         while (true) {
             rsp = solApi.getSolution(key, jobId.getJobId());
-            if (rsp.getStatus().equals(Response.StatusEnum.finished)) {
+            if (rsp.getStatus().equals(Response.StatusEnum.FINISHED)) {
                 break;
             }
             Thread.sleep(200);
@@ -76,7 +76,7 @@ public class VRP_WithShipmentExample {
          */
         List<VehicleType> types = new ArrayList<VehicleType>();
         VehicleType type = new VehicleType();
-        type.setProfile(VehicleType.ProfileEnum.car);
+        type.setProfile(VehicleType.ProfileEnum.CAR);
         type.setTypeId("vehicle_type_1");
         //with three capacity dimensions
         type.setCapacity(Arrays.asList( 5 ));
