@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <name>GraphHopper Directions API Java Client for the Route Optimization API</name>
     <description>The Java client for the GraphHopper Route Optimization API</description>
-    <version>0.5.0.1-SNAPSHOT</version>    
+    <version>0.5.0.1</version>    
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
