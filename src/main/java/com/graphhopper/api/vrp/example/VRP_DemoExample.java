@@ -48,6 +48,7 @@ public class VRP_DemoExample {
 
     private Request createRequest() {
         Request request = new Request();
+        request.setAlgorithm(new Algorithm());
 
         /*
          specify vehicles

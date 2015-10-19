@@ -16,7 +16,7 @@ This vrp client is now in the central repository, thus you can just reference it
 <dependency>
   <groupId>com.graphhopper</groupId>
   <artifactId>directions-api-vrp-java-client</artifactId>
-  <version>0.5.0.0</version>
+  <version>0.5.0.1</version>
 </dependency>
 ```
 

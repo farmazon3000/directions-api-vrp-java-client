@@ -28,7 +28,7 @@ public class TSP_BiggestCitiesInGermanyByBikeExample {
 
         // enable debugging for sending and receiving requests
         // ApiClient client = new ApiClient().setDebugging(true);
-        // api.setApiClient(client);
+        // api.setApiClient(client);        
         
         String key = "[YOUR-KEY]";
         JobId jobId = vrpApi.postVrp(key, request);
@@ -51,7 +51,7 @@ public class TSP_BiggestCitiesInGermanyByBikeExample {
 
     private Request createRequest() {
         Request request = new Request();
-        
+        request.setAlgorithm(new Algorithm());
         /*
         specify vehicles
          */

@@ -46,7 +46,8 @@ public class TSP_BiggestCitiesInGermanyExample {
 
     private Request createRequest() {
         Request request = new Request();
-
+        request.setAlgorithm(new Algorithm());
+        
         /*
         specify vehicles
          */
