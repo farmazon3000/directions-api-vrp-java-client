@@ -4,8 +4,9 @@
     <groupId>com.graphhopper</groupId>
     <artifactId>directions-api-vrp-java-client</artifactId>
     <packaging>jar</packaging>
-    <name>GraphHopper Directions API Java Client for the Tour Optimization API</name>
-    <version>0.5.0.0</version>    
+    <name>GraphHopper Directions API Java Client for the Route Optimization API</name>
+    <description>The Java client for the GraphHopper Route Optimization API</description>
+    <version>0.5.0.1-SNAPSHOT</version>    
 
     <parent>
         <groupId>org.sonatype.oss</groupId>

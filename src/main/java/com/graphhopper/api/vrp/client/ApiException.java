@@ -3,7 +3,7 @@ package com.graphhopper.api.vrp.client;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-19T11:09:20.969+02:00")
 public class ApiException extends Exception {
   private int code = 0;
   private Map<String, List<String>> responseHeaders = null;

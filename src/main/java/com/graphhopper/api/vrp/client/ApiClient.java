@@ -39,7 +39,7 @@ import com.graphhopper.api.vrp.client.auth.HttpBasicAuth;
 import com.graphhopper.api.vrp.client.auth.ApiKeyAuth;
 import com.graphhopper.api.vrp.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-19T11:09:20.969+02:00")
 public class ApiClient {
   private Map<String, Client> hostMap = new HashMap<String, Client>();
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();

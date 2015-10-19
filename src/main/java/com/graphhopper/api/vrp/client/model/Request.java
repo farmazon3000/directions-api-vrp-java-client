@@ -7,6 +7,7 @@ import com.graphhopper.api.vrp.client.model.VehicleType;
 import com.graphhopper.api.vrp.client.model.Service;
 import com.graphhopper.api.vrp.client.model.Shipment;
 import java.util.*;
+import com.graphhopper.api.vrp.client.model.Algorithm;
 
 
 
@@ -15,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-16T14:52:46.732+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-10-19T11:09:20.969+02:00")
 public class Request   {
   
   private List<Vehicle> vehicles = new ArrayList<Vehicle>();
@@ -23,7 +24,7 @@ public class Request   {
   private List<Service> services = new ArrayList<Service>();
   private List<Shipment> shipments = new ArrayList<Shipment>();
   private List<Relation> relations = new ArrayList<Relation>();
-  private Object algorithm = null;
+  private Algorithm algorithm = null;
 
   
   /**
@@ -95,10 +96,10 @@ public class Request   {
    **/
   @ApiModelProperty(value = "")
   @JsonProperty("algorithm")
-  public Object getAlgorithm() {
+  public Algorithm getAlgorithm() {
     return algorithm;
   }
-  public void setAlgorithm(Object algorithm) {
+  public void setAlgorithm(Algorithm algorithm) {
     this.algorithm = algorithm;
   }
 

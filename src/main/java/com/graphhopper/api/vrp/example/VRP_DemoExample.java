@@ -1,6 +1,5 @@
 package com.graphhopper.api.vrp.example;
 
-
 import com.graphhopper.api.vrp.client.api.SolutionApi;
 import com.graphhopper.api.vrp.client.api.VrpApi;
 import com.graphhopper.api.vrp.client.model.*;
@@ -24,8 +23,8 @@ public class VRP_DemoExample {
         VrpApi vrpApi = new VrpApi();
 
         // enable debugging for sending and receiving requests
-        // vrpApi.getInvoker().enableDebug();
-
+        // ApiClient client = new ApiClient().setDebugging(true);
+        // api.setApiClient(client);
         String key = "[YOUR-KEY]";
         JobId jobId = vrpApi.postVrp(key, request);
 
@@ -51,7 +50,7 @@ public class VRP_DemoExample {
         Request request = new Request();
 
         /*
-        specify vehicles
+         specify vehicles
          */
         List<Vehicle> vehicles = new ArrayList<Vehicle>();
 
@@ -70,7 +69,7 @@ public class VRP_DemoExample {
         request.setVehicles(vehicles);
 
         /*
-        specify vehicle type
+         specify vehicle type
          */
         List<VehicleType> types = new ArrayList<VehicleType>();
         VehicleType type = new VehicleType();
@@ -82,53 +81,53 @@ public class VRP_DemoExample {
         request.setVehicleTypes(types);
 
         /*
-        specify your services
+         specify your services
          */
         List<Service> services = new ArrayList<Service>();
 
         Service rostock = createService("rostock", 54.0833333, 12.1333333);
         rostock.setName("drink_bionade_in_rostock");
-        rostock.setSize(Arrays.asList( 1 ));
+        rostock.setSize(Arrays.asList(1));
         services.add(rostock);
 
         Service berlin = createService("berlin", 52.514549, 13.354568);
         berlin.setName("drink_cola_in_berlin");
-        berlin.setSize(Arrays.asList( 1 ));
+        berlin.setSize(Arrays.asList(1));
         services.add(berlin);
 
         Service ulm = createService("ulm", 48.398209, 9.990692);
         ulm.setName("drink_juice_in_ulm");
-        ulm.setSize(Arrays.asList( 1 ));
+        ulm.setSize(Arrays.asList(1));
         services.add(ulm);
 
         Service dresden = createService("dresden", 51.050028, 13.738403);
         dresden.setName("drink_nothing_in_dresden");
-        dresden.setSize(Arrays.asList( 1 ));
+        dresden.setSize(Arrays.asList(1));
         services.add(dresden);
 
         Service kassel = createService("kassel", 51.31173, 9.486694);
         kassel.setName("drink_wine_in_kassel");
-        kassel.setSize(Arrays.asList( 1 ));
+        kassel.setSize(Arrays.asList(1));
         services.add(kassel);
 
         Service dortmund = createService("dortmund", 51.508742, 7.500916);
         dortmund.setName("drink_beer_in_dortmund");
-        dortmund.setSize(Arrays.asList( 1 ));
+        dortmund.setSize(Arrays.asList(1));
         services.add(dortmund);
 
         Service karlsruhe = createService("karlsruhe", 49.0047222, 8.3858333);
         karlsruhe.setName("drink_vogelbeer_in_karlsruhe");
-        karlsruhe.setSize(Arrays.asList( 1 ));
+        karlsruhe.setSize(Arrays.asList(1));
         services.add(karlsruhe);
 
         Service bremen = createService("bremen", 53.041213, 8.822021);
         bremen.setName("eat_fish_in_bremen");
-        bremen.setSize(Arrays.asList( 1 ));
+        bremen.setSize(Arrays.asList(1));
         services.add(bremen);
 
         Service hof = createService("hof", 50.310392, 11.8927);
         hof.setName("drink_somethingelse_in_hof");
-        hof.setSize(Arrays.asList( 1 ));
+        hof.setSize(Arrays.asList(1));
         services.add(hof);
 
         request.setServices(services);

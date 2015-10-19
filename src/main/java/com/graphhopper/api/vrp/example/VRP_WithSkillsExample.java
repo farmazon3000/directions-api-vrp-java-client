@@ -24,7 +24,8 @@ public class VRP_WithSkillsExample {
         VrpApi vrpApi = new VrpApi();
 
         // enable debugging for sending and receiving requests
-        // vrpApi.getInvoker().enableDebug();
+        // ApiClient client = new ApiClient().setDebugging(true);
+        // api.setApiClient(client);
 
         String key = "[YOUR-KEY]";
         JobId jobId = vrpApi.postVrp(key, request);
