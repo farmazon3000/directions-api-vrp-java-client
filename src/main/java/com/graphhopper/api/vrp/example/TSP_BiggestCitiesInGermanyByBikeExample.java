@@ -84,6 +84,18 @@ public class TSP_BiggestCitiesInGermanyByBikeExample {
         services.add(createService("cologne", 50.936, 6.957));
         services.add(createService("frankfurt", 50.109, 8.670));
 
+        /*
+        specify shipments
+         */
+        List<Shipment> shipments = new ArrayList<>();
+        request.setShipments(shipments);
+
+        /*
+        specify relations
+         */
+        List<Relation> relations = new ArrayList<>();
+        request.setRelations(relations);
+
         request.setServices(services);
 
         return request;
